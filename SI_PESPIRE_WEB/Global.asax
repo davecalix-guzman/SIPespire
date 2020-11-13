@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SI_PESPIRE_WEB.Global" Language="C#" %>

@@ -1,0 +1,37 @@
+.bootstro-next-btn { float: right; }
+
+.bootstro-prev-btn { float: left; }
+
+.bootstro-backdrop {
+    background-color: #000000;
+    bottom: 0;
+    filter: alpha(opacity = 50);
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.bootstro-highlight {
+    background-color: white;
+    border: 1px solid white;
+    position: relative;
+    z-index: 9999;
+}
+
+.bootstro-finish-btn-wrapper {
+    clear: both;
+    /*border-top:1px solid #eee;*/
+    padding-top: 10px;
+    text-align: center;
+}
+
+.bootstro-nav-wrapper { margin-top: 10px; }
+
+.bootstro-nav-wrapper button, .bootstro-finish-btn-wrapper button {
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 3px 5px 3px 5px !important;
+}

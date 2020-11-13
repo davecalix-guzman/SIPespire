@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8dba10b85de7440591f00347daffe066" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="SI_PESPIREModel.Acciones" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Categorias" Width="1.5" PointX="5.25" PointY="5.625" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Departamentos" Width="1.5" PointX="8.5" PointY="10.875" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Modulos" Width="1.5" PointX="1.5" PointY="3.625" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Municipios" Width="1.5" PointX="10.75" PointY="9.25" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Oficinas" Width="1.5" PointX="13" PointY="8.625" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Paises" Width="1.5" PointX="5.25" PointY="14.5" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Roles" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.RolModuloAcciones" Width="1.5" PointX="6" PointY="9.375" />
+        <EntityTypeShape EntityType="SI_PESPIREModel.Usuarios" Width="1.5" PointX="3" PointY="7.75" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Acciones_Modulos" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_RolModuloAcciones_Acciones" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Categorias_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Departamentos_Paises" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Departamentos_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Municipios_Departamentos" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_RolModuloAcciones_Modulos" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Municipios_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Oficinas_Municipios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Oficinas_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Usuarios_Oficinas" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Paises_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Roles_Usuarios" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_RolModuloAcciones_Roles" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Usuarios_Roles" />
+        <AssociationConnector Association="SI_PESPIREModel.FK_Usuarios_Usuarios" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\SI_PESPIRE_Entidades.dll.config
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\SI_PESPIRE_Entidades.dll
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\SI_PESPIRE_Entidades.pdb
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\EntityFramework.dll
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\EntityFramework.xml
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\obj\Debug\SI_PESPIRE_Entidades.csprojAssemblyReference.cache
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\obj\Debug\SI_PESPIRE_Entidades.csproj.CoreCompileInputs.cache
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\obj\Debug\SI_PESPIRE_Entidades.csproj.CopyComplete
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\obj\Debug\SI_PESPIRE_Entidades.dll
+C:\Proyectos\SI_PESPIRE\SI_PESPIRE_Entidades\obj\Debug\SI_PESPIRE_Entidades.pdb

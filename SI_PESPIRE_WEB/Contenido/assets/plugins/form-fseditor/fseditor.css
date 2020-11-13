@@ -1,0 +1,85 @@
+.fs-editor-wrapper { position: relative; }
+
+/*.fs-editor-wrapper .fs-editor {
+  min-height: 100px;
+}*/
+
+.fs-editor-wrapper .fs-editor.expanded {
+    height: 90%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 90%;
+    z-index: 102;
+}
+
+.fs-editor-wrapper .fs-editor.expanded.transition-fade { opacity: 0; }
+
+.fs-editor-wrapper .fs-editor .fs-editable {
+    -moz-box-sizing: border-box;
+    -moz-transition: border-color .1s linear;
+    -webkit-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.01);
+    -webkit-box-sizing: border-box;
+    -webkit-transition: border-color .1s linear;
+    background-color: #fcfcfc;
+    border: 1px #e3e3e3 solid;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.01);
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    overflow: auto;
+    padding: 10px;
+    transition: border-color .1s linear;
+}
+
+.fs-editor-wrapper .fs-editor .fs-editable:focus {
+    background-color: #fff;
+    border: 1px #3498db solid;
+    box-shadow: 0 0px 1px 0px #e1f0fa;
+    outline: 0;
+}
+
+.fs-editor-wrapper .fs-editor .fs-editable.placeholder {
+    color: #999;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.fs-editor-wrapper .fs-editor .fs-icon {
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAYAAAAbBi9cAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABV0RVh0Q3JlYXRpb24gVGltZQA4LzE2LzEzspl6ugAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAB7SURBVDiN7ZOxCsAgDESvxXyhi5P/Fif/0i6NGJH2KIUufVOUJB45s6lqw0DOGQylFHfeqSqCYEGMESJCF6aUAAC1Vt9IRPolixtDG1DVxjLnhtVL8yAvlZy8Nuy/0T1L19g1cY3Mavupd9bPWL5T9ERJV2SBrcfn238A3whjoYEPESwAAAAASUVORK5CYII=');*/
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    height: 14px;
+    line-height: 1;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  
+    width: 12px;
+    z-index: 103;
+}
+
+.fs-icon { color: #ccc; }
+
+.fs-icon:hover {
+    color: #999;
+    text-decoration: none;
+}
+
+.fs-icon:before { content: "\f0b2"; }
+
+.fs-editor-overlay {
+    background: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+}

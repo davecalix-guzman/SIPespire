@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cliente", "Cliente", "{AE64BDB9-275A-472C-9685-2B87B22E8096}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servidor", "Servidor", "{F0B02638-B4B2-4348-8D73-77634207B8A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SI_PESPIRE_WEB", "SI_PESPIRE_WEB\SI_PESPIRE_WEB.csproj", "{4410645F-DD3B-4314-B714-E21B3A6A3C06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SI_PESPIRE_Entidades", "SI_PESPIRE_Entidades\SI_PESPIRE_Entidades.csproj", "{56B5D645-012F-4D34-ADBE-24649B030704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SI_PESPIRE_AccesoDatos", "SI_PESPIRE_AccesoDatos\SI_PESPIRE_AccesoDatos.csproj", "{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SI_PESPIRE_LogicaNegocio", "SI_PESPIRE_LogicaNegocio\SI_PESPIRE_LogicaNegocio.csproj", "{A034D866-A2C3-4FA0-B45A-A1E211B13CEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4410645F-DD3B-4314-B714-E21B3A6A3C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4410645F-DD3B-4314-B714-E21B3A6A3C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4410645F-DD3B-4314-B714-E21B3A6A3C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4410645F-DD3B-4314-B714-E21B3A6A3C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B5D645-012F-4D34-ADBE-24649B030704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B5D645-012F-4D34-ADBE-24649B030704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B5D645-012F-4D34-ADBE-24649B030704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B5D645-012F-4D34-ADBE-24649B030704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A034D866-A2C3-4FA0-B45A-A1E211B13CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A034D866-A2C3-4FA0-B45A-A1E211B13CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A034D866-A2C3-4FA0-B45A-A1E211B13CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A034D866-A2C3-4FA0-B45A-A1E211B13CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4410645F-DD3B-4314-B714-E21B3A6A3C06} = {AE64BDB9-275A-472C-9685-2B87B22E8096}
+		{56B5D645-012F-4D34-ADBE-24649B030704} = {F0B02638-B4B2-4348-8D73-77634207B8A1}
+		{B703DCB1-25E1-4CDB-8F9D-14B26FA8F933} = {F0B02638-B4B2-4348-8D73-77634207B8A1}
+		{A034D866-A2C3-4FA0-B45A-A1E211B13CEC} = {F0B02638-B4B2-4348-8D73-77634207B8A1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3372455C-F3E8-49EA-8B4B-56A8CC11D630}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://davecalix.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SI_PESPIRE_WEB\\SI_PESPIRE_WEB.csproj
+		SccProjectTopLevelParentUniqueName1 = SI_PESPIRE.sln
+		SccProjectName1 = SI_PESPIRE_WEB
+		SccLocalPath1 = SI_PESPIRE_WEB
+		SccProjectUniqueName2 = SI_PESPIRE_Entidades\\SI_PESPIRE_Entidades.csproj
+		SccProjectTopLevelParentUniqueName2 = SI_PESPIRE.sln
+		SccProjectName2 = SI_PESPIRE_Entidades
+		SccLocalPath2 = SI_PESPIRE_Entidades
+		SccProjectUniqueName3 = SI_PESPIRE_AccesoDatos\\SI_PESPIRE_AccesoDatos.csproj
+		SccProjectTopLevelParentUniqueName3 = SI_PESPIRE.sln
+		SccProjectName3 = SI_PESPIRE_AccesoDatos
+		SccLocalPath3 = SI_PESPIRE_AccesoDatos
+		SccProjectUniqueName4 = SI_PESPIRE_LogicaNegocio\\SI_PESPIRE_LogicaNegocio.csproj
+		SccProjectTopLevelParentUniqueName4 = SI_PESPIRE.sln
+		SccProjectName4 = SI_PESPIRE_LogicaNegocio
+		SccLocalPath4 = SI_PESPIRE_LogicaNegocio
+	EndGlobalSection
+EndGlobal

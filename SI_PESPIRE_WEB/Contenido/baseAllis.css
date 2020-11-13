@@ -1,0 +1,15 @@
+﻿span.requerido {
+    color: red;
+    margin-right: 3px;
+}
+
+td.dxic {
+    border: none !important;
+    height: 30px;
+}
+
+.dxeTextBox_DevEx, .dxeTextBox_DevEx:focus { border: 1px solid #d9dae0; }
+
+.dxgvDetailRow_Moderno.dxgvADR td.dxgvAIC { padding: 2px 5px 2px !important; }
+
+.dxeButtonEdit_DevEx { border-top: solid 1px #d9dae0 !important; }

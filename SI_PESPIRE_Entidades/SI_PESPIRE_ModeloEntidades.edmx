@@ -1,0 +1,998 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SI_PESPIREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acciones">
+          <Key>
+            <PropertyRef Name="AccionId" />
+          </Key>
+          <Property Name="AccionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Padre" Type="int" Nullable="false" />
+          <Property Name="Menu" Type="bit" Nullable="false" />
+          <Property Name="Icono" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClaseCss" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreFormulario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Enlace" Type="nvarchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="Offline" Type="bit" Nullable="false" />
+          <Property Name="FKModuloId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCategoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imagenlustracion" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" />
+          <Property Name="FKPaisId" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Icono" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClaseCss" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="MunicipioId" />
+          </Key>
+          <Property Name="MunicipioId" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" />
+          <Property Name="FKDepartamentoId" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oficinas">
+          <Key>
+            <PropertyRef Name="OficinaId" />
+          </Key>
+          <Property Name="OficinaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Encargado" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" />
+          <Property Name="FKMunicipioId" Type="char" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Name="PaisId" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Name="RolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FKUsuarioId" Type="int" />
+        </EntityType>
+        <EntityType Name="RolModuloAcciones">
+          <Key>
+            <PropertyRef Name="FKRolId" />
+            <PropertyRef Name="FKAccionId" />
+          </Key>
+          <Property Name="FKRolId" Type="int" Nullable="false" />
+          <Property Name="FKAccionId" Type="int" Nullable="false" />
+          <Property Name="FKModuloId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoUsuario" Type="int" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="NombreCompleto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="Reseteo" Type="bit" Nullable="false" />
+          <Property Name="FotoPerfil" Type="varbinary(max)" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificado" Type="datetime" />
+          <Property Name="FKUsuarioId" Type="int" />
+          <Property Name="FKRolId" Type="int" Nullable="false" />
+          <Property Name="FKOficinaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Acciones_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+          <End Role="Acciones" Type="Self.Acciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="Acciones">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categorias_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Categorias">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamentos_Paises">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="FKPaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamentos_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Departamentos">
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="DepartamentoId" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="FKDepartamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficinas_Municipios">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+          <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="MunicipioId" />
+            </Principal>
+            <Dependent Role="Oficinas">
+              <PropertyRef Name="FKMunicipioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficinas_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Oficinas">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paises_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Paises" Type="Self.Paises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Paises">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roles_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Acciones">
+          <End Role="Acciones" Type="Self.Acciones" Multiplicity="1" />
+          <End Role="RolModuloAcciones" Type="Self.RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acciones">
+              <PropertyRef Name="AccionId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKAccionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+          <End Role="RolModuloAcciones" Type="Self.RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RolModuloAcciones" Type="Self.RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKRolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Oficinas">
+          <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficinas">
+              <PropertyRef Name="OficinaId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKOficinaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKRolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Usuarios1" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Usuarios1">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SI_PESPIREModelStoreContainer">
+          <EntitySet Name="Acciones" EntityType="Self.Acciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oficinas" EntityType="Self.Oficinas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolModuloAcciones" EntityType="Self.RolModuloAcciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Acciones_Modulos" Association="Self.FK_Acciones_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="Acciones" EntitySet="Acciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categorias_Usuarios" Association="Self.FK_Categorias_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Categorias" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamentos_Paises" Association="Self.FK_Departamentos_Paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamentos_Usuarios" Association="Self.FK_Departamentos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Departamentos" Association="Self.FK_Municipios_Departamentos">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Usuarios" Association="Self.FK_Municipios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficinas_Municipios" Association="Self.FK_Oficinas_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Oficinas" EntitySet="Oficinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficinas_Usuarios" Association="Self.FK_Oficinas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Oficinas" EntitySet="Oficinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paises_Usuarios" Association="Self.FK_Paises_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Paises" EntitySet="Paises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roles_Usuarios" Association="Self.FK_Roles_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Acciones" Association="Self.FK_RolModuloAcciones_Acciones">
+            <End Role="Acciones" EntitySet="Acciones" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Modulos" Association="Self.FK_RolModuloAcciones_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Roles" Association="Self.FK_RolModuloAcciones_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Oficinas" Association="Self.FK_Usuarios_Oficinas">
+            <End Role="Oficinas" EntitySet="Oficinas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Roles" Association="Self.FK_Usuarios_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Usuarios" Association="Self.FK_Usuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Usuarios1" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SI_PESPIREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SI_PESPIREEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acciones" EntityType="SI_PESPIREModel.Acciones" />
+          <EntitySet Name="Categorias" EntityType="SI_PESPIREModel.Categorias" />
+          <EntitySet Name="Departamentos" EntityType="SI_PESPIREModel.Departamentos" />
+          <EntitySet Name="Modulos" EntityType="SI_PESPIREModel.Modulos" />
+          <EntitySet Name="Municipios" EntityType="SI_PESPIREModel.Municipios" />
+          <EntitySet Name="Oficinas" EntityType="SI_PESPIREModel.Oficinas" />
+          <EntitySet Name="Paises" EntityType="SI_PESPIREModel.Paises" />
+          <EntitySet Name="Roles" EntityType="SI_PESPIREModel.Roles" />
+          <EntitySet Name="RolModuloAcciones" EntityType="SI_PESPIREModel.RolModuloAcciones" />
+          <EntitySet Name="Usuarios" EntityType="SI_PESPIREModel.Usuarios" />
+          <AssociationSet Name="FK_Acciones_Modulos" Association="SI_PESPIREModel.FK_Acciones_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="Acciones" EntitySet="Acciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Acciones" Association="SI_PESPIREModel.FK_RolModuloAcciones_Acciones">
+            <End Role="Acciones" EntitySet="Acciones" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categorias_Usuarios" Association="SI_PESPIREModel.FK_Categorias_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Categorias" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamentos_Paises" Association="SI_PESPIREModel.FK_Departamentos_Paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamentos_Usuarios" Association="SI_PESPIREModel.FK_Departamentos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Departamentos" Association="SI_PESPIREModel.FK_Municipios_Departamentos">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Modulos" Association="SI_PESPIREModel.FK_RolModuloAcciones_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Usuarios" Association="SI_PESPIREModel.FK_Municipios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficinas_Municipios" Association="SI_PESPIREModel.FK_Oficinas_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Oficinas" EntitySet="Oficinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficinas_Usuarios" Association="SI_PESPIREModel.FK_Oficinas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Oficinas" EntitySet="Oficinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Oficinas" Association="SI_PESPIREModel.FK_Usuarios_Oficinas">
+            <End Role="Oficinas" EntitySet="Oficinas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paises_Usuarios" Association="SI_PESPIREModel.FK_Paises_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Paises" EntitySet="Paises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roles_Usuarios" Association="SI_PESPIREModel.FK_Roles_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolModuloAcciones_Roles" Association="SI_PESPIREModel.FK_RolModuloAcciones_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolModuloAcciones" EntitySet="RolModuloAcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Roles" Association="SI_PESPIREModel.FK_Usuarios_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Usuarios" Association="SI_PESPIREModel.FK_Usuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Usuarios1" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Acciones">
+          <Key>
+            <PropertyRef Name="AccionId" />
+          </Key>
+          <Property Name="AccionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Padre" Type="Int32" Nullable="false" />
+          <Property Name="Menu" Type="Boolean" Nullable="false" />
+          <Property Name="Icono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClaseCss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreFormulario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enlace" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="Offline" Type="Boolean" Nullable="false" />
+          <Property Name="FKModuloId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modulos" Relationship="SI_PESPIREModel.FK_Acciones_Modulos" FromRole="Acciones" ToRole="Modulos" />
+          <NavigationProperty Name="RolModuloAcciones" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Acciones" FromRole="Acciones" ToRole="RolModuloAcciones" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Imagenlustracion" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Categorias_Usuarios" FromRole="Categorias" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <Property Name="FKPaisId" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Paises" Relationship="SI_PESPIREModel.FK_Departamentos_Paises" FromRole="Departamentos" ToRole="Paises" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Departamentos_Usuarios" FromRole="Departamentos" ToRole="Usuarios" />
+          <NavigationProperty Name="Municipios" Relationship="SI_PESPIREModel.FK_Municipios_Departamentos" FromRole="Departamentos" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="ModuloId" />
+          </Key>
+          <Property Name="ModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Icono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClaseCss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Acciones" Relationship="SI_PESPIREModel.FK_Acciones_Modulos" FromRole="Modulos" ToRole="Acciones" />
+          <NavigationProperty Name="RolModuloAcciones" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Modulos" FromRole="Modulos" ToRole="RolModuloAcciones" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="MunicipioId" />
+          </Key>
+          <Property Name="MunicipioId" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <Property Name="FKDepartamentoId" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Departamentos" Relationship="SI_PESPIREModel.FK_Municipios_Departamentos" FromRole="Municipios" ToRole="Departamentos" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Municipios_Usuarios" FromRole="Municipios" ToRole="Usuarios" />
+          <NavigationProperty Name="Oficinas" Relationship="SI_PESPIREModel.FK_Oficinas_Municipios" FromRole="Municipios" ToRole="Oficinas" />
+        </EntityType>
+        <EntityType Name="Oficinas">
+          <Key>
+            <PropertyRef Name="OficinaId" />
+          </Key>
+          <Property Name="OficinaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Encargado" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <Property Name="FKMunicipioId" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Municipios" Relationship="SI_PESPIREModel.FK_Oficinas_Municipios" FromRole="Oficinas" ToRole="Municipios" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Oficinas_Usuarios" FromRole="Oficinas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="SI_PESPIREModel.FK_Usuarios_Oficinas" FromRole="Oficinas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Name="PaisId" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <NavigationProperty Name="Departamentos" Relationship="SI_PESPIREModel.FK_Departamentos_Paises" FromRole="Paises" ToRole="Departamentos" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Paises_Usuarios" FromRole="Paises" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Name="RolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <NavigationProperty Name="Usuarios" Relationship="SI_PESPIREModel.FK_Roles_Usuarios" FromRole="Roles" ToRole="Usuarios" />
+          <NavigationProperty Name="RolModuloAcciones" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Roles" FromRole="Roles" ToRole="RolModuloAcciones" />
+          <NavigationProperty Name="Usuarios1" Relationship="SI_PESPIREModel.FK_Usuarios_Roles" FromRole="Roles" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="RolModuloAcciones">
+          <Key>
+            <PropertyRef Name="FKRolId" />
+            <PropertyRef Name="FKAccionId" />
+          </Key>
+          <Property Name="FKRolId" Type="Int32" Nullable="false" />
+          <Property Name="FKAccionId" Type="Int32" Nullable="false" />
+          <Property Name="FKModuloId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Acciones" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Acciones" FromRole="RolModuloAcciones" ToRole="Acciones" />
+          <NavigationProperty Name="Modulos" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Modulos" FromRole="RolModuloAcciones" ToRole="Modulos" />
+          <NavigationProperty Name="Roles" Relationship="SI_PESPIREModel.FK_RolModuloAcciones_Roles" FromRole="RolModuloAcciones" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="Reseteo" Type="Boolean" Nullable="false" />
+          <Property Name="FotoPerfil" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificado" Type="DateTime" Precision="3" />
+          <Property Name="FKUsuarioId" Type="Int32" />
+          <Property Name="FKRolId" Type="Int32" Nullable="false" />
+          <Property Name="FKOficinaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="SI_PESPIREModel.FK_Categorias_Usuarios" FromRole="Usuarios" ToRole="Categorias" />
+          <NavigationProperty Name="Departamentos" Relationship="SI_PESPIREModel.FK_Departamentos_Usuarios" FromRole="Usuarios" ToRole="Departamentos" />
+          <NavigationProperty Name="Municipios" Relationship="SI_PESPIREModel.FK_Municipios_Usuarios" FromRole="Usuarios" ToRole="Municipios" />
+          <NavigationProperty Name="Oficinas" Relationship="SI_PESPIREModel.FK_Oficinas_Usuarios" FromRole="Usuarios" ToRole="Oficinas" />
+          <NavigationProperty Name="Oficinas1" Relationship="SI_PESPIREModel.FK_Usuarios_Oficinas" FromRole="Usuarios" ToRole="Oficinas" />
+          <NavigationProperty Name="Paises" Relationship="SI_PESPIREModel.FK_Paises_Usuarios" FromRole="Usuarios" ToRole="Paises" />
+          <NavigationProperty Name="Roles" Relationship="SI_PESPIREModel.FK_Roles_Usuarios" FromRole="Usuarios" ToRole="Roles" />
+          <NavigationProperty Name="Roles1" Relationship="SI_PESPIREModel.FK_Usuarios_Roles" FromRole="Usuarios" ToRole="Roles" />
+          <NavigationProperty Name="Usuarios1" Relationship="SI_PESPIREModel.FK_Usuarios_Usuarios" FromRole="Usuarios" ToRole="Usuarios1" />
+          <NavigationProperty Name="Usuarios2" Relationship="SI_PESPIREModel.FK_Usuarios_Usuarios" FromRole="Usuarios1" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK_Acciones_Modulos">
+          <End Type="SI_PESPIREModel.Modulos" Role="Modulos" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Acciones" Role="Acciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="Acciones">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Acciones">
+          <End Type="SI_PESPIREModel.Acciones" Role="Acciones" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.RolModuloAcciones" Role="RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acciones">
+              <PropertyRef Name="AccionId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKAccionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categorias_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Categorias" Role="Categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Categorias">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamentos_Paises">
+          <End Type="SI_PESPIREModel.Paises" Role="Paises" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Departamentos" Role="Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="FKPaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamentos_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Departamentos" Role="Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Departamentos">
+          <End Type="SI_PESPIREModel.Departamentos" Role="Departamentos" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Municipios" Role="Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="DepartamentoId" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="FKDepartamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Modulos">
+          <End Type="SI_PESPIREModel.Modulos" Role="Modulos" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.RolModuloAcciones" Role="RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="ModuloId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Municipios" Role="Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficinas_Municipios">
+          <End Type="SI_PESPIREModel.Municipios" Role="Municipios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Oficinas" Role="Oficinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="MunicipioId" />
+            </Principal>
+            <Dependent Role="Oficinas">
+              <PropertyRef Name="FKMunicipioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficinas_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Oficinas" Role="Oficinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Oficinas">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Oficinas">
+          <End Type="SI_PESPIREModel.Oficinas" Role="Oficinas" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficinas">
+              <PropertyRef Name="OficinaId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKOficinaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paises_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Paises" Role="Paises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Paises">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roles_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Roles" Role="Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolModuloAcciones_Roles">
+          <End Type="SI_PESPIREModel.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.RolModuloAcciones" Role="RolModuloAcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="RolModuloAcciones">
+              <PropertyRef Name="FKRolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Roles">
+          <End Type="SI_PESPIREModel.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKRolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Usuarios">
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="SI_PESPIREModel.Usuarios" Role="Usuarios1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Usuarios1">
+              <PropertyRef Name="FKUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SI_PESPIREModelStoreContainer" CdmEntityContainer="SI_PESPIREEntities">
+          <EntitySetMapping Name="Acciones">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Acciones">
+              <MappingFragment StoreEntitySet="Acciones">
+                <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+                <ScalarProperty Name="Offline" ColumnName="Offline" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+                <ScalarProperty Name="NombreFormulario" ColumnName="NombreFormulario" />
+                <ScalarProperty Name="ClaseCss" ColumnName="ClaseCss" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="Padre" ColumnName="Padre" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="AccionId" ColumnName="AccionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Imagenlustracion" ColumnName="Imagenlustracion" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="FKPaisId" ColumnName="FKPaisId" />
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Modulos">
+              <MappingFragment StoreEntitySet="Modulos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ClaseCss" ColumnName="ClaseCss" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Municipios">
+              <MappingFragment StoreEntitySet="Municipios">
+                <ScalarProperty Name="FKDepartamentoId" ColumnName="FKDepartamentoId" />
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oficinas">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Oficinas">
+              <MappingFragment StoreEntitySet="Oficinas">
+                <ScalarProperty Name="FKMunicipioId" ColumnName="FKMunicipioId" />
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="OficinaId" ColumnName="OficinaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolModuloAcciones">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.RolModuloAcciones">
+              <MappingFragment StoreEntitySet="RolModuloAcciones">
+                <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+                <ScalarProperty Name="FKAccionId" ColumnName="FKAccionId" />
+                <ScalarProperty Name="FKRolId" ColumnName="FKRolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SI_PESPIREModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="FKOficinaId" ColumnName="FKOficinaId" />
+                <ScalarProperty Name="FKRolId" ColumnName="FKRolId" />
+                <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+                <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FotoPerfil" ColumnName="FotoPerfil" />
+                <ScalarProperty Name="Reseteo" ColumnName="Reseteo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SI_PESPIREModelStoreContainer" CdmEntityContainer="SI_PESPIREEntities">
+    <EntitySetMapping Name="Acciones">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Acciones">
+        <MappingFragment StoreEntitySet="Acciones">
+          <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+          <ScalarProperty Name="Offline" ColumnName="Offline" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+          <ScalarProperty Name="NombreFormulario" ColumnName="NombreFormulario" />
+          <ScalarProperty Name="ClaseCss" ColumnName="ClaseCss" />
+          <ScalarProperty Name="Icono" ColumnName="Icono" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="Padre" ColumnName="Padre" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="AccionId" ColumnName="AccionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Imagenlustracion" ColumnName="Imagenlustracion" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Departamentos">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="FKPaisId" ColumnName="FKPaisId" />
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulos">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Modulos">
+        <MappingFragment StoreEntitySet="Modulos">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ClaseCss" ColumnName="ClaseCss" />
+          <ScalarProperty Name="Icono" ColumnName="Icono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="FKDepartamentoId" ColumnName="FKDepartamentoId" />
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oficinas">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Oficinas">
+        <MappingFragment StoreEntitySet="Oficinas">
+          <ScalarProperty Name="FKMunicipioId" ColumnName="FKMunicipioId" />
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="OficinaId" ColumnName="OficinaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Paises">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolModuloAcciones">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.RolModuloAcciones">
+        <MappingFragment StoreEntitySet="RolModuloAcciones">
+          <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+          <ScalarProperty Name="FKAccionId" ColumnName="FKAccionId" />
+          <ScalarProperty Name="FKRolId" ColumnName="FKRolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SI_PESPIREModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="FKOficinaId" ColumnName="FKOficinaId" />
+          <ScalarProperty Name="FKRolId" ColumnName="FKRolId" />
+          <ScalarProperty Name="FKUsuarioId" ColumnName="FKUsuarioId" />
+          <ScalarProperty Name="FechaModificado" ColumnName="FechaModificado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FotoPerfil" ColumnName="FotoPerfil" />
+          <ScalarProperty Name="Reseteo" ColumnName="Reseteo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
